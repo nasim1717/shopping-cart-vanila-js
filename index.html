@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Shopping Cart Application</title>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="bg-[#1C2B35] text-[#FFF]">
+      <div class="flex max-w-screen-2xl mx-auto justify-between py-7 flex-row gap-3 px-2">
+        <div class="max-[768px]:pl-2">
+          <h2 class="cursor-pointer">Shopping Cart</h2>
+        </div>
+        <div class="min-[769px]:basis-96 max-[768px]:pr-2 text-center">
+          <i id="open-menu-icon" class="fa-solid fa-bars text-xl max-[768px]:block hidden"></i>
+          <i id="hide-menu-icon" class="fa-solid fa-xmark text-xl max-[768px]:hidden hidden"></i>
+          <div
+            id="navbar-menu"
+            class="flex justify-between max-[768px]:justify-evenly max-[768px]:flex-col max-[768px]:hidden"
+          >
+            <h1 class="cursor-pointer">Home</h1>
+            <h1 id="login" class="cursor-pointer">Login</h1>
+            <h2 id="customer" class="cursor-pointer">Customer</h2>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <!-- products and shopping cart section start -->
+    <main
+      class="md:max-w-screen-2xl w-full mx-auto mt-6 flex flex-row max-[1024px]:flex-col gap-5 justify-items-center"
+    >
+      <!-- product list section start-->
+      <section
+        id="product-list"
+        class="grid md:grid-cols-3 md:gap-4 grid-cols-2 gap-2 md:mx-0 mx-auto md:col-start-1 md:col-end-3 px-2"
+      ></section>
+      <!-- product list section end -->
+
+      <!-- cart section start -->
+      <section
+        class="max-h-[792px] mx-1 border-solid border-[2px] rounded-lg border-[#95A0A7] basis-[62em] relative"
+      >
+        <h2 class="text-center py-3">Your Shoping</h2>
+        <h2 id="no-shopping" class="absolute top-64 left-28">No Shopping</h2>
+        <div id="cart" class="max-h-[490px] overflow-scroll overflow-x-hidden mx-2"></div>
+        <hr class="mt-4 border-solid border-[2px]" />
+        <div id="total-price-content" class="hidden">
+          <h2 class="mt-3 mb-1 ml-2">Total Price: <span id="total-price"></span></h2>
+          <div class="max-[767px]:flex max-[767px]:flex-col max-[767px]:gap-y-3">
+            <input
+              id="discount-value"
+              class="border-solid border-[2px] h-9 px-3 max-[767px]:w-1/2 ml-2"
+              type="number"
+              placeholder="apply discount"
+              required
+            />
+            <button
+              onclick="discountCalculate()"
+              class="border-solid border-[2px] bg-slate-300 py-1 px-2 rounded ml-2 max-[767px]:w-1/2"
+            >
+              Apply Discount
+            </button>
+            <h2 id="error-input" class="ml-2 hidden text-red-400">
+              Enter the number greater than zero
+            </h2>
+          </div>
+          <h2 class="ml-2 pt-2">
+            Discount Total Price: <span id="toal-amount">You didn't apply</span>
+          </h2>
+        </div>
+        <div class="text-center">
+          <button
+            onclick="clearCart()"
+            class="border-solid border-[1px] bg-[#FFE0B3] max-[281px]:py-2 py-4 absolute bottom-0 left-0 right-0"
+          >
+            Clear Cart
+          </button>
+        </div>
+      </section>
+      <!-- cart section end -->
+    </main>
+    <!-- products ans shopping cart section end-->
+
+    <!-- javascript file added -->
+    <script src="./navbar.js"></script>
+    <script src="./cart.js"></script>
+    <script src="./productData.js"></script>
+    <script src="./products.js"></script>
+    <script src="./cartProducts.js"></script>
+  </body>
+</html>
